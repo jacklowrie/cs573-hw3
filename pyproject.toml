@@ -1,0 +1,55 @@
+[project]
+name = "3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyterlab>=4.5.0",
+    "marimo>=0.18.1",
+    "numpy>=2.3.5",
+    "pandas>=2.3.3",
+    "polars>=1.35.2",
+    "scikit-learn>=1.7.2",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "ruff>=0.14.6",
+    "scikit-learn-stubs>=0.0.3",
+    "types-tqdm>=4.67.0.20250809",
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "ANN", # annotations :)
+    "D",   # code documentation :)
+]
+ignore = ["F403", "F405"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+mypy_path = "src"
+files = ["src", "main.py"]
+exclude = [
+    '(^|.*/)__pycache__/', # matches __pycache__ at any depth
+    '(^|.*/).ruff_cache/',
+    '(^|.*/).mypy_cache/',
+    '(^|.*/)dist/',
+]
