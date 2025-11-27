@@ -3,6 +3,7 @@
 This module exposes `run_all` which loads the dataset and runs both
 bagging and boosting evaluations producing a consolidated result dict.
 """
+
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from src.bagging import evaluate_bagging
@@ -17,14 +18,15 @@ def run_all(
 ) -> Dict[str, List[Tuple[int, float, float]]]:
     """Load data and run bagging and boosting evaluations.
 
-    Returns a dictionary with keys 'D1', 'D2', 'D1_boost', and 'D2_boost'.
+    Returns a dictionary with keys 'bag_ds1', 'bag_ds2', 'boost_ds1', and
+    'boost_ds2'.
     """
     train_X, val_X, train_y, val_y, train_y2, val_y2 = load_data(path)
 
     if n_list is None:
         n_list = [2, 10, 50, 75, 100]
 
-    res1 = evaluate_bagging(
+    bag_ds1 = evaluate_bagging(
         train_X,
         train_y,
         val_X,
@@ -32,7 +34,8 @@ def run_all(
         n_list,
         use_tqdm=use_tqdm,
     )
-    res2 = evaluate_bagging(
+
+    bag_ds2 = evaluate_bagging(
         train_X,
         train_y2,
         val_X,
@@ -41,14 +44,20 @@ def run_all(
         use_tqdm=use_tqdm,
     )
 
-    bres1 = evaluate_boosting(
+    boost_ds1 = evaluate_boosting(
         train_X, train_y, val_X, val_y, n_list, use_tqdm=use_tqdm
     )
-    bres2 = evaluate_boosting(
+
+    boost_ds2 = evaluate_boosting(
         train_X, train_y2, val_X, val_y2, n_list, use_tqdm=use_tqdm
     )
 
-    return {"D1": res1, "D2": res2, "D1_boost": bres1, "D2_boost": bres2}
+    return {
+        "bag_ds1": bag_ds1,
+        "bag_ds2": bag_ds2,
+        "boost_ds1": boost_ds1,
+        "boost_ds2": boost_ds2,
+    }
 
 
 __all__ = ["run_all"]

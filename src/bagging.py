@@ -9,7 +9,7 @@ import numpy.typing as npt
 from sklearn.ensemble import BaggingClassifier
 from sklearn.metrics import roc_auc_score, zero_one_loss
 from sklearn.svm import SVC
-from tqdm import tqdm
+from tqdm.autonotebook import tqdm
 
 
 def evaluate_bagging(

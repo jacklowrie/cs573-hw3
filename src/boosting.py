@@ -10,7 +10,7 @@ import numpy.typing as npt
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.metrics import roc_auc_score, zero_one_loss
 from sklearn.tree import DecisionTreeClassifier
-from tqdm import tqdm
+from tqdm.autonotebook import tqdm
 
 
 def evaluate_boosting(
