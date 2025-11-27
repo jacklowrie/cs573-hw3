@@ -2,7 +2,7 @@
 
 from typing import Dict, List, Tuple
 
-from src.bagging import run_all
+from src.runner import run_all
 
 
 def main() -> None:
@@ -21,6 +21,15 @@ def main() -> None:
 
     print("\nEvaluating Dataset D2")
     for n, zol, auc in results["D2"]:
+        print(f"n_estimators={n}: zero-one loss={zol:.4f}, ROC AUC={auc:.4f}")
+
+    print("\nBoosting results (AdaBoost with DecisionTree max_depth=1)")
+    print("Dataset D1 (train_dat_y)")
+    for n, zol, auc in results["D1_boost"]:
+        print(f"n_estimators={n}: zero-one loss={zol:.4f}, ROC AUC={auc:.4f}")
+
+    print("\nDataset D2 (train_dat_y2)")
+    for n, zol, auc in results["D2_boost"]:
         print(f"n_estimators={n}: zero-one loss={zol:.4f}, ROC AUC={auc:.4f}")
 
 
