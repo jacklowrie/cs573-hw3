@@ -1,4 +1,4 @@
-"""Command-line entrypoint for the bagging evaluation script."""
+"""Command-line entrypoint."""
 
 from typing import Dict, List, Tuple
 
@@ -25,7 +25,7 @@ def main() -> None:
         print(f"n_estimators={n}: zero-one loss={zol:.4f}, ROC AUC={auc:.4f}")
 
     print("\nBoosting results (AdaBoost with DecisionTree max_depth=1)")
-    print("Dataset D1 (train_dat_y)")
+    print("\nDataset D1 (train_dat_y)")
     for n, zol, auc in results["boost_ds1"]:
         print(f"n_estimators={n}: zero-one loss={zol:.4f}, ROC AUC={auc:.4f}")
 

@@ -1,8 +1,4 @@
-"""Boosting evaluation helpers (problem 1b).
-
-Provides an evaluator for AdaBoostClassifier using a decision stump
-as the base estimator.
-"""
+"""boosting.py: Provides functions for problem 1b."""
 
 from typing import Any, List, Sequence, Tuple
 

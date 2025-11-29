@@ -1,7 +1,4 @@
-"""Bagging evaluation implementation.
-
-Provides functions for problem 1a.
-"""
+"""bagging.py: Provides functions for problem 1a."""
 
 from typing import Any, List, Sequence, Tuple
 
@@ -20,7 +17,7 @@ def evaluate_bagging(
     n_list: Sequence[int],
     use_tqdm: bool = True,
 ) -> List[Tuple[int, float, float]]:
-    """Train BaggingClassifier ensembles and return results.
+    """Train BaggingClassifier ensembles.
 
     Args:
         train_X: Training features.
@@ -53,5 +50,5 @@ def evaluate_bagging(
 
 
 __all__ = [
-    'evaluate_bagging',
+    "evaluate_bagging",
 ]

@@ -1,8 +1,4 @@
-"""Runner functions for running bagging and boosting experiments.
-
-This module exposes `run_all` which loads the dataset and runs both
-bagging and boosting evaluations producing a consolidated result dict.
-"""
+"""runner.py: Runs bagging and boosting evaluations."""
 
 from typing import Dict, List, Optional, Sequence, Tuple
 
